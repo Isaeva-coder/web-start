@@ -80,7 +80,6 @@
     color: $primary;
     text-decoration: none;
     transform: rotate(90deg);
-    line-height: 1;
 
     &::after {
       content: '';
@@ -88,6 +87,7 @@
       height: 1px;
       background-color: $primary;
       margin-left: 8px;
+      margin-bottom: 3px;
     }
   }
 }

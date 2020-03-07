@@ -328,9 +328,14 @@ template {
   border: none;
   border-radius: 2px;
   text-transform: uppercase;
-  color: #fff; }
+  color: #fff;
+  cursor: pointer; }
+  .button:hover {
+    box-shadow: none; }
   .button--primary {
-    background-color: #E3B873; }
+    background-color: #E3B873;
+    transition: box-shadow 0.3s;
+    box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2); }
   .button--outline {
     background-color: transparent;
     border: 1px solid #fff; }

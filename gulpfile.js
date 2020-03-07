@@ -6,24 +6,33 @@ const browserSync = require('browser-sync').create();
 
 // Static Server + watching scss/html files
 function bs() {
+  build();
   serveSass();
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: "./dist"
     }
   });
-  watch("./*.html").on('change', browserSync.reload);
-  watch("./**/*.scss", serveSass);
-  watch("./js/*.js").on('change', browserSync.reload);
+  watch("./dist/*.html").on('change', browserSync.reload);
+  watch("./src/**/*.scss", serveSass);
+  watch("./src/js/*.js").on('change', browserSync.reload);
 };
+
+function build() {
+  src('./src/*.html')
+    .pipe(dest("./dist/"))
+
+  src("./public/**/*")
+    .pipe(dest("./dist"))
+}
 
 // Compile sass into CSS & auto-inject into browsers
 function serveSass() {
-  return src("./sass/**/*.scss")
+  return src("./src/sass/**/*.scss")
       .pipe(sass())
       .pipe(autoprefixer({ cascade: false }))
       .pipe(cleanCSS({ debug: true }))
-      .pipe(dest("./css"))
+      .pipe(dest("./dist/css"))
       .pipe(browserSync.stream());
 };
 

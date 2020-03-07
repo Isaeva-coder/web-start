@@ -3,8 +3,12 @@
   border: none;
   border-radius: 2px;
   text-transform: uppercase;
+  color: $light;
   &--primary {
     background-color: $primary;
-    color: $light;
+  }
+  &--outline {
+    background-color: transparent;
+    border: 1px solid $light;
   }
 }

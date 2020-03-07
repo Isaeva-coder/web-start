@@ -1,10 +1,16 @@
+@import "fonts";
 @import "normalize";
 @import "variables";
 @import "grid";
 @import "interface";
 @import "templates/header";
+@import "templates/hero";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: sans-serif;
+  font-family: 'Futura Book', sans-serif;
   font-size: 14px;
 }

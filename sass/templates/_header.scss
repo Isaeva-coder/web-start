@@ -25,6 +25,11 @@ header {
     text-decoration: none;
     color: $light;
     margin-right: 40px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary;
+    }
   }
 }
 

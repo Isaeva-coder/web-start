@@ -357,7 +357,10 @@ header {
   text-transform: uppercase;
   text-decoration: none;
   color: #fff;
-  margin-right: 40px; }
+  margin-right: 40px;
+  transition: color 0.2s; }
+  .nav__item:hover {
+    color: #E3B873; }
 
 .phone {
   color: #E3B873; }
@@ -375,7 +378,14 @@ header {
   background: #131313 url(../img/hero-bg.jpg) no-repeat center/cover;
   height: 100vh;
   color: #fff; }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 19, 19, 0.7); }
   .hero__content {
+    position: relative;
     max-width: 670px; }
   .hero__text {
     font-size: 22px;
@@ -401,6 +411,14 @@ header {
     text-transform: uppercase;
     text-decoration: none;
     color: #fff; }
+    .hero__scroll-down:after {
+      content: '';
+      background: url(../img/arrow-down.svg) no-repeat center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #E3B873;
+      border-radius: 50%;
+      margin-left: 12px; }
 
 .instagram {
   background-color: #131313;
@@ -408,10 +426,19 @@ header {
   justify-content: center;
   align-items: center; }
   .instagram__link {
+    display: flex;
+    align-items: center;
     text-transform: uppercase;
     color: #E3B873;
     text-decoration: none;
-    transform: rotate(90deg); }
+    transform: rotate(90deg);
+    line-height: 1; }
+    .instagram__link::after {
+      content: '';
+      width: 50px;
+      height: 1px;
+      background-color: #E3B873;
+      margin-left: 8px; }
 
 .title {
   margin: 0;

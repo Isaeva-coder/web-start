@@ -4,7 +4,10 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
 
-// Static Server + watching scss/html files
+/**
+ * Запуск локального статического сервера +
+ * отслеживание scss/html файлов
+ */
 function bs() {
   build();
   serveSass();
@@ -18,6 +21,9 @@ function bs() {
   watch("./src/js/*.js").on('change', browserSync.reload);
 };
 
+/** 
+ * Сборка проекта (перемещение файлов из папки public и html файлов) 
+ */
 function build() {
   src('./src/*.html')
     .pipe(dest("./dist/"))
@@ -26,13 +32,21 @@ function build() {
     .pipe(dest("./dist"))
 }
 
-// Compile sass into CSS & auto-inject into browsers
+/**
+ * Компилирование sass в css + автоматическое добавление
+ * в браузер
+ */
 function serveSass() {
   return src("./src/sass/**/*.scss")
+      // Преобразование sass/scss в css
       .pipe(sass())
+      // Добавление вендорных автопрефиксов
       .pipe(autoprefixer({ cascade: false }))
+      // Минификация преобразованного css файла
       .pipe(cleanCSS({ debug: true }))
+      // Перемещение полученнного файла в продуктовую папку
       .pipe(dest("./dist/css"))
+      // Запуск автообносления browserSync
       .pipe(browserSync.stream());
 };
 

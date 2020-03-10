@@ -28,10 +28,18 @@
   &__text {
     font-size: 1.57rem;
     max-width: 500px;
+    line-height: 131%;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
   }
 
   &__button {
     margin-right: 20px;
+    padding: 20px 35px;
   }
 
   &__instagram {
@@ -73,8 +81,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   &__link {
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -98,6 +107,8 @@
   font-family: 'Yeseva One', cursive;
   text-transform: uppercase;
   font-size: 2.85rem;
+  line-height: 1.4;
+
   &--primary {
     color: $primary;
   }

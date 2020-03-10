@@ -21,11 +21,12 @@
 
   &__content {
     position: relative;
-    max-width: 670px;
+    max-width: 47.85rem;
+    margin-left: 2.28rem;
   }
 
   &__text {
-    font-size: 22px;
+    font-size: 1.57rem;
     max-width: 500px;
   }
 
@@ -48,8 +49,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    min-width: 247px;
-    min-height: 97px;
+    min-width: 17.6rem;
+    min-height: 6.92rem;
     background-color: $dark;
     text-transform: uppercase;
     text-decoration: none;
@@ -96,7 +97,7 @@
   margin: 0;
   font-family: 'Yeseva One', cursive;
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 2.85rem;
   &--primary {
     color: $primary;
   }

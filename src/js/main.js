@@ -97,7 +97,7 @@ $(document).ready(function() {
     positionPrev.left + prev.width() + 20 + bullets.width() + 20
   );
 
-  new WOW().init();
+  // new WOW().init();
 
   // Валидация формы
   $(".modal__form").validate({

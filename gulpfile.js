@@ -1,4 +1,5 @@
 const { src, dest, watch } = require('gulp');
+const htmlmin = require('gulp-htmlmin');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
@@ -30,7 +31,12 @@ function bs() {
  * Сборка проекта (перемещение файлов из папки public и html файлов) 
  */
 function build() {
-  src('./src/*.html').pipe(dest("./dist/"));
+  src('./src/*.html')
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true
+    }))
+    .pipe(dest("./dist/"));
   src("./public/**/*").pipe(dest("./dist"));
   src("./src/js/*.min.js").pipe(dest("./dist"));
 }
@@ -40,6 +46,10 @@ function build() {
  */
 function serveHtml() {
   return src('./src/*.html')
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      removeComments: true
+    }))
     .pipe(dest("./dist/"))
     .pipe(browserSync.stream());
 }

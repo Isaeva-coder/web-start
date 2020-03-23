@@ -26,6 +26,47 @@
         margin-bottom: 1.8rem
         &:last-of-type
           margin-bottom: 6rem
+@media screen and ( min-width: 992px )
+  .button
+    &--primary
+      transition: box-shadow 0.3s
+      &:hover
+        box-shadow: 0px 5px 15px rgba($primary, 0.2)
+    &--outline
+      transition: border 0.2s
+      &:hover
+        border: 1px solid $primary
+  .logo
+    &__text
+      transition: color 0.2s
+      &:hover
+        color: $light
+  .nav
+    &__item
+      transition: color 0.2s
+      &:hover
+        color: $primary
+  .instagram
+    &__link
+      transition: color 0.2s
+      &:hover
+        color: $light
+  .hero
+    &__scroll-down
+      transition: color 0.2s
+      &:hover
+        color: $primary
+  .phone
+    transition: color 0.2s
+    &:hover
+      color: $light
+  .contacts
+    &-info
+      &__phone
+        transition: color 0.3s
+        &:hover
+          color: $light
+          text-decoration: underline
 @media screen and ( max-width: 992px )
   html
     font-size: 11px
@@ -102,6 +143,8 @@
         &::after
           display: none
   .projects
+    padding-bottom: 29.5rem
+    background-color: $black
     &__title
       font-size: 1.833rem
       line-height: 2.5rem
@@ -172,8 +215,9 @@
     &__text
       margin-left: 0
   .design
-    background: $lightDark
+    background: $black
     &__heading
+      margin-bottom: 1.15rem
       color: $light
     &__text
       color: $light
@@ -183,10 +227,11 @@
     &__card
       margin-bottom: 5rem
   .team
-    background-color: $lightDark
+    background-color: $black
     &__section-title
       margin-bottom: 6.8rem
       margin-left: 0
+      margin-top: 0
     &__heading
       color: $light
     &__image
@@ -212,21 +257,27 @@
       color: $light
     &__card
       margin-bottom: 9.2rem
+      &--margin
+        margin-bottom: 3rem
     &__description
       display: none 
     &__row
+      margin-bottom: 0
       .col-32
         &:nth-child(3)
           margin-top: -0.25rem  
   .footer
-    background: $lightDark
+    background: $black
+    padding-top: 2.05rem
     &__wrap
-      background: $lightDark
-      padding: 2.5rem 0
+      background: $black
+      padding: 0
+      margin-top: 0
     &__title
       font-size: 1.666rem
       line-height: 2.333rem
       margin-bottom: 4.1rem
+      margin-top: 0
     &__form
       max-width: 44.55rem
       flex-direction: column
@@ -249,6 +300,7 @@
       margin-bottom: 5.35rem
     &__button
       margin: 0
+      margin-bottom: 2.5rem
       padding: 1.1rem 4rem
       font-size: 1.25rem
       line-height: 2.166rem
@@ -323,7 +375,8 @@
         margin-bottom: 3.3rem
   .projects
     padding-top: 3rem
-    background-color: $lightDark
+    padding-bottom: 2.05rem
+    background-color: $black
     &__title
       margin-bottom: 1.9rem
     &__text
@@ -364,7 +417,7 @@
       &--md
         padding: 1rem 2.25rem
   .control
-    background: linear-gradient(to bottom, $lightDark 94.2%, $light 5.8%)
+    background: linear-gradient(to bottom, $black 94.2%, $light 5.8%)
     &__section-title
       margin-top: 0
       padding-left: 0
@@ -403,16 +456,30 @@
       margin-bottom: 6.6rem
   .design
     &__image
-      margin-bottom: 0.3rem
+      margin-bottom: 0
     &__card
-      margin-bottom: 6.8rem
+      margin-bottom: 6.65rem
+      &--margin
+        margin-bottom: 3.8rem
     &__text
+      margin-top: 1.6rem
       margin-bottom: 3.1rem
     &-card
+      &__title
+        margin-bottom: 0.7rem
       &__text
-        padding: 1.75rem 2.4rem
+        padding: 1.4rem 2.45rem
+      &__list
+        margin-bottom: 1.95rem
+        line-height: 2rem
+      &__pricetag
+        font-size: 1.25rem
+        line-height: 1.75rem
+        padding: 0.8rem 3.9rem
+        &--lg
+          padding: 0.8rem 4rem
   .team
-    background-color: $lightDark
+    background-color: $black
     &__section-title
       margin-bottom: 6.8rem
       margin-left: 0
@@ -443,6 +510,8 @@
     &__card
       margin-left: 2.7rem
       margin-bottom: 9.2rem
+      &--margin
+        margin-bottom: 2rem
     &__description
       display: none
     &__row

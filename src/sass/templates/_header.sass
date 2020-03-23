@@ -11,11 +11,13 @@
   justify-content: space-between
   align-items: center
 .logo
-  font-size: 1rem
-  color: $primary
-  text-transform: uppercase
-  font-family: 'Futura Demi', sans-serif
-  font-weight: 500
+  &__text
+    font-size: 1rem
+    color: $primary
+    text-transform: uppercase
+    font-family: 'Futura Demi', sans-serif
+    font-weight: 500
+    text-decoration: none
 .nav
   &__item
     color: $light
@@ -23,8 +25,6 @@
     text-transform: uppercase
     margin-right: 2.65rem
     transition: color 0.2s
-    &:hover
-      color: $primary
     &:last-child
       margin-right: 0
 .phone

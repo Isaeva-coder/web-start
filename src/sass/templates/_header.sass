@@ -1,0 +1,39 @@
+.header
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  z-index: 99
+  background-color: $dark
+  padding: 24px 0
+.menu
+  display: flex
+  justify-content: space-between
+  align-items: center
+.logo
+  font-size: 1rem
+  color: $primary
+  text-transform: uppercase
+  font-family: 'Futura Demi', sans-serif
+  font-weight: 500
+.nav
+  &__item
+    color: $light
+    text-decoration: none
+    text-transform: uppercase
+    margin-right: 2.65rem
+    transition: color 0.2s
+    &:hover
+      color: $primary
+    &:last-child
+      margin-right: 0
+.phone
+  color: $primary
+  font-family: 'Futura Demi', sans-serif
+  font-weight: 500
+.contacts
+  &__phone
+    margin-right: 3rem
+    margin-left: 1rem
+  &__button
+    padding: 11px 21px

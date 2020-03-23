@@ -3,6 +3,9 @@ const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
+const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 
 /**
@@ -12,13 +15,15 @@ const browserSync = require('browser-sync').create();
 function bs() {
   build();
   serveSass();
+  serveJs();
   browserSync.init({
     server: {
       baseDir: "./dist"
     }
   });
   watch("./src/*.html", serveHtml);
-  watch("./src/**/*.scss", serveSass);
+  watch("./src/sass/**/*", serveSass);
+  watch("./src/js/**/*", serveJs);
 };
 
 /** 
@@ -27,6 +32,7 @@ function bs() {
 function build() {
   src('./src/*.html').pipe(dest("./dist/"));
   src("./public/**/*").pipe(dest("./dist"));
+  src("./src/js/*.min.js").pipe(dest("./dist"));
 }
 
 /**
@@ -39,11 +45,26 @@ function serveHtml() {
 }
 
 /**
- * Компилирование sass в css + автоматическое добавление
- * в браузер
+ * Отслеживание изменений в js файлах
+ */
+function serveJs() {
+  return src(['src/js/**/*.js',  '!src/js/**/*.min.js'])
+    // .pipe(sourcemaps.init())
+    // .pipe(babel({
+    //   presets: ['@babel/preset-env']
+    // }))
+    .pipe(concat('main.js'))
+    // .pipe(sourcemaps.write('.'))
+    .pipe(dest('dist/js'))
+    .pipe(browserSync.stream());
+}
+
+/**
+ * Компилирование sass в css + автоматическое
+ * добавление в браузер
  */
 function serveSass() {
-  return src("./src/sass/**/*.scss")
+  return src("./src/sass/style.sass")
     // Преобразование sass/scss в css
     .pipe(sass())
     // Добавление вендорных автопрефиксов

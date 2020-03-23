@@ -49,45 +49,25 @@ $(document).ready(function() {
   $(".button-up").click(function() {
     $("html, body")
       .stop()
-      .animate({ scrollTop: 0 }, 1300);
+      .animate({ scrollTop: 0 }, 700);
   });
 
-  $(".nav").on("click", "a", function(e) {
-    e.preventDefault();
-    var id = $(this).attr("href"),
-      idTop = $(id).offset().top;
-    $("body, html").animate({ scrollTop: idTop }, 1300);
-  });
-  $(".logo").on("click", "a", function(e) {
-    $("body, html").animate({ scrollTop: 0 }, 1300);
-  });
-
-  var mySwiper = new Swiper(".projects-swiper", {
+  var mySwiper = new Swiper(".swiper-container", {
     loop: true,
     pagination: {
-      el: ".projects-pagination",
+      el: ".swiper-pagination",
       type: "bullets"
     },
     navigation: {
-      nextEl: ".projects-swiper-button-next",
-      prevEl: ".projects-swiper-button-prev"
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
     }
   });
 
-  var next = $(".projects-swiper-button-next");
-  var prev = $(".projects-swiper-button-prev");
-  var bullets = $(".projects-pagination");
-
-  var mql = window.matchMedia("all and (max-width: 570px)");
-  if (mql.matches) {
-    $(".swiper-slide__img").each(function() {
-      $(this).attr("src", "img/project/project-mobile.jpg");
-    });
-  } else {
-    $(".swiper-slide__img").each(function() {
-      $(this).attr("src", "img/project/project.jpg");
-    });
-  }
+  var next = $(".swiper-button-next");
+  var prev = $(".swiper-button-prev");
+  var bullets = $(".swiper-pagination");
+  var bullet = $(".swiper-pagination.bullet");
 
   var positionPrev = prev.position();
 
@@ -97,7 +77,22 @@ $(document).ready(function() {
     positionPrev.left + prev.width() + 20 + bullets.width() + 20
   );
 
-  // new WOW().init();
+  new WOW().init();
+
+  // Видимость анимации
+
+  var typesCard = $(".types__card");
+  var typesHeight =
+    $(".header").height() +
+    $(".hero").height() +
+    $(".projects").height() +
+    $(".control").height() -
+    200;
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() >= typesHeight && $(window).width() >= 760)
+      typesCard.addClass("animation-fade-up");
+  });
 
   // Валидация формы
   $(".modal__form").validate({
@@ -144,11 +139,9 @@ $(document).ready(function() {
         url: "send.php",
         data: $(form).serialize(),
         success: function(response) {
+          modal.removeClass("modal--visible");
           $(".thanks").addClass("thanks--visible");
           $(form)[0].reset();
-          if ($(".thanks").hasClass("thanks--visible")) {
-            modal.removeClass("modal--visible");
-          }
         }
       });
     }
@@ -196,9 +189,6 @@ $(document).ready(function() {
         success: function(response) {
           $(".thanks").addClass("thanks--visible");
           $(form)[0].reset();
-          if ($(".thanks").hasClass("thanks--visible")) {
-            modal.removeClass("modal--visible");
-          }
         }
       });
     }
@@ -239,9 +229,6 @@ $(document).ready(function() {
         success: function(response) {
           $(".thanks").addClass("thanks--visible");
           $(form)[0].reset();
-          if ($(".thanks").hasClass("thanks--visible")) {
-            modal.removeClass("modal--visible");
-          }
         }
       });
     }
@@ -272,8 +259,8 @@ $(document).ready(function() {
       myPlacemark = new ymaps.Placemark(
         myMap.getCenter(),
         {
-          hintContent: "Наш офис",
-          balloonContent: "Турецкий ремонт квартир"
+          hintContent: "Декатлон",
+          balloonContent: "Lesson-27 | Турецкий ремонт квартир"
         },
         {
           // Опции.

@@ -2,10 +2,10 @@ const { src, dest, watch } = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-var rename = require("gulp-rename");
+const rename = require("gulp-rename");
 const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
 
 /**
@@ -49,12 +49,14 @@ function serveHtml() {
  */
 function serveJs() {
   return src(['src/js/**/*.js',  '!src/js/**/*.min.js'])
-    // .pipe(sourcemaps.init())
-    // .pipe(babel({
-    //   presets: ['@babel/preset-env']
-    // }))
+    .pipe(sourcemaps.init())
     .pipe(concat('main.js'))
-    // .pipe(sourcemaps.write('.'))
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: ".min",
+      extname: ".js"
+    }))
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('dist/js'))
     .pipe(browserSync.stream());
 }

@@ -78,33 +78,34 @@ input
       left: 30%
       color: tomato
 .button-up
-    opacity: 0
-    position: fixed
-    display: flex
-    justify-content: center
-    align-items: center
-    right: 0
-    bottom: 0
-    margin-right: 2rem
-    margin-bottom: 1.5rem
-    // min-width: 10rem
-    // min-height: 4rem
-    background-color: transparent
-    border: none
-    font-family: 'Yeseva One', cursive
-    font-size: 0.9rem
-    text-transform: uppercase
-    text-decoration: none
-    cursor: pointer
-    outline: none
-    color: $primary
-    &::after
-      content: ''
-      background: url('../img/arrow-down.svg') no-repeat center
-      transform: rotate(180deg)
-      width: 30px
-      height: 30px
-      border: 2px solid $primary
-      border-radius: 50%
-      margin-left: 1rem
+  z-index: 99
+  opacity: 0
+  position: fixed
+  display: flex
+  justify-content: center
+  align-items: center
+  right: 0
+  bottom: 0
+  margin-right: 2rem
+  margin-bottom: 1.5rem
+  // min-width: 10rem
+  // min-height: 4rem
+  background-color: transparent
+  border: none
+  font-family: 'Yeseva One', cursive
+  font-size: 0.9rem
+  text-transform: uppercase
+  text-decoration: none
+  cursor: pointer
+  outline: none
+  color: $primary
+  &::after
+    content: ''
+    background: url('../img/arrow-down.svg') no-repeat center
+    transform: rotate(180deg)
+    width: 30px
+    height: 30px
+    border: 2px solid $primary
+    border-radius: 50%
+    margin-left: 1rem
 

@@ -6,8 +6,10 @@
   <link href="https://fonts.googleapis.com/css?family=Yeseva+One&display=swap&subset=cyrillic" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
   <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
   <link rel="stylesheet" href="css/style.min.css">
   <script src="https://api-maps.yandex.ru/2.1/?apikey=ab8d2379-f0eb-45bc-a85b-2fe4bab5e946&lang=ru_RU"></script>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/png">
   <title>Lesson-28 | Ремонт квартир</title>
 </head>
 <body>
@@ -180,8 +182,10 @@
           <!-- /.section-title__image -->
         </div>
         <!-- /.section-title -->
-        <div class="control__video video">
-          <img src="img/play-icon.svg" alt="play icon" class="video__play">
+        <div class="control__video video" id="player">
+          <a class="video__play" data-fancybox href="https://youtu.be/38zznVtI5FA">
+            <img src="img/play-icon.svg" alt="play icon">
+          </a>
         </div>
         <!-- /.control__video video -->
         <p class="control__text">На каждом объекте установлена ​​камера, которая транслирует ход работы на часах. В любой момент вы можете зайти на наш сайт и следить за ходом работы в вашей квартире. Посмотрите прямую трансляцию с одного из наших объектов! Оставьте заявку ниже чтобы получить ссылку на трансляцию.</p>

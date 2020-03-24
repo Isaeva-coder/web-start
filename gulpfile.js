@@ -38,7 +38,6 @@ function build() {
     }))
     .pipe(dest("./dist/"));
   src("./public/**/*").pipe(dest("./dist"));
-  src("./src/js/*.min.js").pipe(dest("./dist"));
 }
 
 /**
@@ -58,14 +57,10 @@ function serveHtml() {
  * Отслеживание изменений в js файлах
  */
 function serveJs() {
-  return src(['src/js/**/*.js',  '!src/js/**/*.min.js'])
+  return src('src/js/**/*')
     .pipe(sourcemaps.init())
-    .pipe(concat('main.js'))
+    .pipe(concat('index.min.js'))
     .pipe(uglify())
-    .pipe(rename({
-      suffix: ".min",
-      extname: ".js"
-    }))
     .pipe(sourcemaps.write('.'))
     .pipe(dest('dist/js'))
     .pipe(browserSync.stream());

@@ -24,6 +24,8 @@ body {
   margin: 0;
 }
 
+a:active, a:focus { outline: none; }
+
 /**
  * Render the `main` element consistently in IE.
  */

@@ -105,6 +105,7 @@ typings/
 # Temporary folders
 tmp/
 temp/
+dist/
 
 ### Windows ###
 # Windows thumbnail cache files

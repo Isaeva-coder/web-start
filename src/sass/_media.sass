@@ -26,6 +26,8 @@
         margin-bottom: 1.8rem
         &:last-of-type
           margin-bottom: 6rem
+  .button-up
+    margin-right: 1.5rem
 @media screen and ( min-width: 992px )
   .button
     &--primary
@@ -94,14 +96,27 @@
     &-card
       &__title
         max-width: 14.55rem
+  .card
+    &__text
+      padding: 1rem 1.5rem
+    &__title
+      font-size: 1.1rem
+    &__list
+      font-size: 0.9rem
   .design
     &__row
       margin-left: 0
+  .team
+    &-card
+      &__text
+        padding: 0
 @media screen and ( max-width: 760px )
   .row
     flex-direction: column
     align-items: center
   .col
+    &-32
+      max-width: 100%
     &-40
       width: 100%
       max-width: 35rem
@@ -144,7 +159,7 @@
           display: none
   .projects
     padding-bottom: 29.5rem
-    background-color: $black
+    background: $black
     &__title
       font-size: 1.833rem
       line-height: 2.5rem
@@ -189,12 +204,17 @@
     &__play
       margin: auto
   .types
+    background: $light
     &__card
       margin-bottom: 5rem
     &-card
       &__title
         max-width: 20rem
   .card
+    &__title
+      font-size: 1.29rem
+    &__list
+      font-size: 1.07rem
     &__icon
       left: -4.5rem
       top: -4.15rem
@@ -209,13 +229,16 @@
       line-height: 2.166rem
     &__experience
       min-width: 19.416rem
-      max-heiht: 3.666rem
+      max-height: 3.666rem
       font-size: 1.083rem
       line-height: 1.666rem
     &__text
+      padding: 1.7rem 2.2rem
       margin-left: 0
   .design
     background: $black
+    &__section-title
+      margin-top: 0
     &__heading
       margin-bottom: 1.15rem
       color: $light
@@ -526,17 +549,20 @@
     &__map
       order: -2
       max-width: 28.333rem
+      height: 255px
       min-height: 21.25rem
       margin-bottom: 3.3rem
     &__menu
       display: none
+  .ymaps-2-1-76-map
+    height: 255px!important
   .contacts
     &-info
       &__text
         max-width: 27rem
         font-size: 1.5rem
-        line-height: 2.083rem
-        margin-bottom: 2rem
+        line-height: 2.1rem
+        margin-bottom: 1.85rem
       &__email 
         margin-left: 0.2rem
         margin-right: 1.55rem
@@ -547,8 +573,56 @@
         img
           width: 3.25rem
           height: 3.25rem
+  .modal
+    &__input-group
+      margin-bottom: 2rem
+    &__dialog
+      width: 95%
+      max-width: 33rem
+      padding: 2.357rem 3rem 1.929rem 3rem
+    &__title
+      font-size: 1.1rem
+      line-height: 1.4rem
+      margin: auto
+      margin-bottom: 2rem
+      max-width: 20rem
+    &__close
+      margin: 7px
 @media screen and ( max-height: 530px )
   .hero
     &__scroll-down
       display: none
+  .modal
+    overflow: scroll
+@media screen and ( max-height: 450px )
+  .hero
+    &::after
+      display: none
+  .modal
+    &__input-group
+      margin-bottom: 1.7rem
+    &__policy
+      margin-bottom: 1rem
+    &__dialog
+      max-width: 36.143rem
+      padding: 1rem 3rem 1rem 3rem
+    &__close
+      width: 28px
+      height: 28px
+      margin: 5px
+    &__title
+      font-size: 1.1rem
+      line-height: 1.4rem
+      margin-bottom: 0.5rem
+      max-width: 20rem
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) 
+  .hero
+    justify-content: flex-start
+    &__scroll-down
+      padding: 2.5rem 0
+  .instagram
+    &__link
+      &::after
+        position: absolute
+        top: 50%
   

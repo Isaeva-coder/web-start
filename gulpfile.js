@@ -6,6 +6,7 @@ const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
 const sourcemaps = require('gulp-sourcemaps');
 const concat = require('gulp-concat');
+const imagemin = require('gulp-imagemin');
 const uglify = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
 
@@ -17,6 +18,7 @@ function bs() {
   build();
   serveSass();
   serveJs();
+  serveImage();
   browserSync.init({
     server: {
       baseDir: "./dist"
@@ -57,13 +59,36 @@ function serveHtml() {
  * Отслеживание изменений в js файлах
  */
 function serveJs() {
-  return src('src/js/**/*')
+  return src([
+      'src/js/**/*', 
+      '!src/js/jquery.fancybox.min.js',
+      '!src/js/wow.js'
+    ])
     .pipe(sourcemaps.init())
     .pipe(concat('index.min.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
     .pipe(dest('dist/js'))
     .pipe(browserSync.stream());
+}
+
+/**
+ * Минификация изображений для продуктвой сборки
+ */
+function serveImage() {
+  return src('src/img/**/*')
+  .pipe(imagemin([
+    imagemin.gifsicle({interlaced: true}),
+    imagemin.mozjpeg({quality: 75, progressive: true}),
+    imagemin.optipng({optimizationLevel: 5}),
+    imagemin.svgo({
+      plugins: [
+        {removeViewBox: true},
+        {cleanupIDs: false}
+      ]
+    })
+  ]))
+  .pipe(dest('dist/img'));
 }
 
 /**
